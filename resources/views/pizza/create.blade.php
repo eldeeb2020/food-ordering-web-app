@@ -17,17 +17,25 @@
 
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Pizza</div>
-                @if(count($errors)>0)
+            @if(count($errors)>0)
+
+            <div class="card mt-5">
+                <div class="card-body" >
                 @foreach($errors->all() as $error)
                 <div class="alert alert-danger">{{$error}}</div>
                 @endforeach
 
-                @endif
-                <form action="{{route('pizza.store')}}" method="post">@csrf
+
+                </div>
+            </div>
+            @endif
+
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Pizza</div>
+               
+                <form action="{{route('pizza.store')}}" method="post" enctype="multipart/form-data">@csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Pizza Name</label>
@@ -40,8 +48,8 @@
                         <div class="form-inline">
                             <label>Price($)</label>
                             <input type="number" name="small_pizza_price" class="form-control" placeholder="Small">
-                            <input type="number" name="medium" class="form-control" placeholder="Medium">
-                            <input type="number" name="large" class="form-control" placeholder="Large">
+                            <input type="number" name="medium_pizza_price" class="form-control" placeholder="Medium">
+                            <input type="number" name="large_pizza_price" class="form-control" placeholder="Large">
                         </div>
 
                         <div class="form-group">
